@@ -1,4 +1,4 @@
-package com.movieapp.core.repositories.movie
+package com.movieapp.core.repositories.movies
 
 import com.movieapp.core.repositories.models.MovieDto
 
