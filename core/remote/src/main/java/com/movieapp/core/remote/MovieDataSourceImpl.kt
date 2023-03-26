@@ -2,7 +2,7 @@ package com.movieapp.core.remote
 
 import com.movieapp.core.remote.response.BaseResponse
 import com.movieapp.core.repositories.models.MovieDto
-import com.movieapp.core.repositories.movie.MovieDataSource
+import com.movieapp.core.repositories.movies.MovieDataSource
 import retrofit2.Response
 import javax.inject.Inject
 
