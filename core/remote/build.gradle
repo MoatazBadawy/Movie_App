@@ -10,10 +10,13 @@ android {
     namespace 'com.movieapp.core.remote'
     compileSdk 33
 
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
     defaultConfig {
         minSdk 24
         targetSdk 33
 
+        buildConfigField "String", "API_KEY", localProperties['apiKey']
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
