@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.movieapp.core.usecases.movies.GetMostPopularMoviesUseCase
 import com.movieapp.core.usecases.movies.GetTopRatedMoviesUseCase
+import com.movieapp.core.viewmodels.enums.SortType
 import com.movieapp.core.viewmodels.mapper.toMovieUiStateList
 import com.movieapp.core.viewmodels.uistate.MovieMainUIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,26 +20,36 @@ class MovieViewModel @Inject constructor(
     private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
 ) : ViewModel() {
 
-    private val _movieUIState = MutableStateFlow(MovieMainUIState())
-    val movieUIState get() = _movieUIState.asStateFlow()
+    private val _movieUiState = MutableStateFlow(MovieMainUIState())
+    val movieUiState get() = _movieUiState.asStateFlow()
+
+    private val _selectedSortType = MutableStateFlow(SortType.MOST_POPULAR)
+    val selectedSortType get() = _selectedSortType.asStateFlow()
+
+    private val _showDropdown = MutableStateFlow(false)
+    val showDropdown get() = _showDropdown.asStateFlow()
 
     init {
-        getMostPopularMovies()
+        fetchMovies()
     }
 
-    private fun getMostPopularMovies() {
+    private fun fetchMovies() {
         viewModelScope.launch {
             try {
-                _movieUIState.update {
+                val movies = when (_selectedSortType.value) {
+                    SortType.MOST_POPULAR -> getMostPopularMoviesUseCase()
+                    SortType.TOP_RATED -> getTopRatedMoviesUseCase()
+                }
+                _movieUiState.update {
                     it.copy(
-                        movies = getMostPopularMoviesUseCase().toMovieUiStateList(),
+                        movies = movies.toMovieUiStateList(),
                         isLoading = false,
                         isError = false,
                         isSuccess = true,
                     )
                 }
             } catch (e: Exception) {
-                _movieUIState.value = MovieMainUIState(
+                _movieUiState.value = MovieMainUIState(
                     isError = true,
                     isLoading = false,
                     isSuccess = false,
@@ -48,25 +59,18 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    private fun getTopRatedMovies() {
-        viewModelScope.launch {
-            try {
-                _movieUIState.update {
-                    it.copy(
-                        movies = getTopRatedMoviesUseCase().toMovieUiStateList(),
-                        isLoading = false,
-                        isError = false,
-                        isSuccess = true,
-                    )
-                }
-            } catch (e: Exception) {
-                _movieUIState.value = MovieMainUIState(
-                    isError = true,
-                    isLoading = false,
-                    isSuccess = false,
-                    movies = emptyList(),
-                )
-            }
+    fun retry() {
+        fetchMovies()
+    }
+
+    fun setSelectedSortType(sortType: SortType) {
+        if (_selectedSortType.value != sortType) {
+            _selectedSortType.value = sortType
+            fetchMovies()
         }
+    }
+
+    fun setShowDropdown(show: Boolean) {
+        _showDropdown.value = show
     }
 }
