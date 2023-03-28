@@ -59,10 +59,9 @@ fun MovieScreen(
                         }
                     }
 
-                    movieUiState.isError -> {
+                    movieUiState.isError && movieUiState.movies.isEmpty() -> {
                         Snackbar(
-                            modifier = Modifier.fillMaxSize()
-                                .align(Alignment.BottomEnd),
+                            modifier = Modifier.padding(16.dp).align(Alignment.BottomEnd),
                             action = {
                                 TextButton(onClick = viewModel::retry) {
                                     Text(
@@ -74,26 +73,6 @@ fun MovieScreen(
                         ) {
                             Text(
                                 text = "Failed to load movies",
-                                color = Color.White,
-                            )
-                        }
-                    }
-
-                    else -> {
-                        Snackbar(
-                            modifier = Modifier.fillMaxSize()
-                                .align(Alignment.BottomEnd),
-                            action = {
-                                TextButton(onClick = viewModel::retry) {
-                                    Text(
-                                        text = "Retry",
-                                        color = Color.White,
-                                    )
-                                }
-                            },
-                        ) {
-                            Text(
-                                text = "No movies found",
                                 color = Color.White,
                             )
                         }
