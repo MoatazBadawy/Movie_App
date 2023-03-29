@@ -1,4 +1,4 @@
-package com.moataz.movieapp.ui.di
+package com.moataz.movieapp.di
 
 import com.movieapp.core.repositories.MovieRepositoryImpl
 import com.movieapp.core.usecases.repository.MovieRepository

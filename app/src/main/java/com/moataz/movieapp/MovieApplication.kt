@@ -1,4 +1,4 @@
-package com.moataz.movieapp.ui
+package com.moataz.movieapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
