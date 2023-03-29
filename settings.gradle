@@ -14,3 +14,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Movie App Task"
 include ':app'
+include ':core:entities'
+include ':core:remote'
+include ':core:repositories'
+include ':core:usecases'
+include ':core:viewmodels'
+include ':core:ui'
