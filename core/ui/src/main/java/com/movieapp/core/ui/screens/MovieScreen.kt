@@ -63,7 +63,7 @@ fun MovieScreen(
                         Snackbar(
                             modifier = Modifier.padding(16.dp).align(Alignment.BottomEnd),
                             action = {
-                                TextButton(onClick = viewModel::retry) {
+                                TextButton(onClick = viewModel::retryLoadMovies) {
                                     Text(
                                         text = "Retry",
                                         color = Color.White,
