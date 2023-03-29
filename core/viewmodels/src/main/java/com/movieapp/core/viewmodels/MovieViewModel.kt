@@ -2,8 +2,8 @@ package com.movieapp.core.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.movieapp.core.usecases.movies.GetMostPopularMoviesUseCase
-import com.movieapp.core.usecases.movies.GetTopRatedMoviesUseCase
+import com.movieapp.core.usecases.GetMostPopularMoviesUseCase
+import com.movieapp.core.usecases.GetTopRatedMoviesUseCase
 import com.movieapp.core.viewmodels.enums.SortType
 import com.movieapp.core.viewmodels.mapper.toMovieUiStateList
 import com.movieapp.core.viewmodels.uistate.MovieMainUIState
@@ -59,7 +59,7 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    fun retry() {
+    fun retryLoadMovies() {
         fetchMovies()
     }
 

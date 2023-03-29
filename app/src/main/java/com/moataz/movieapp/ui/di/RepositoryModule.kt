@@ -1,6 +1,6 @@
 package com.moataz.movieapp.ui.di
 
-import com.movieapp.core.repositories.movies.MovieRepositoryImpl
+import com.movieapp.core.repositories.MovieRepositoryImpl
 import com.movieapp.core.usecases.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
