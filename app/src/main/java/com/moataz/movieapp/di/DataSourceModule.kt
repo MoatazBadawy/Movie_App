@@ -1,4 +1,4 @@
-package com.moataz.movieapp.ui.di
+package com.moataz.movieapp.di
 
 import com.movieapp.core.remote.datasource.MovieDataSourceImpl
 import com.movieapp.core.repositories.MovieDataSource

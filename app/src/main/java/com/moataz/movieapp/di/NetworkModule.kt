@@ -1,4 +1,4 @@
-package com.moataz.movieapp.ui.di
+package com.moataz.movieapp.di
 
 import com.moataz.movieapp.BuildConfig
 import com.movieapp.core.remote.AuthInterceptor
