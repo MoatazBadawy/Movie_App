@@ -8,8 +8,10 @@ import com.movieapp.core.viewmodels.enums.SortType
 import com.movieapp.core.viewmodels.mapper.toMovieUiStateList
 import com.movieapp.core.viewmodels.uistate.MovieMainUIState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,8 +28,8 @@ class MovieViewModel @Inject constructor(
     private val _selectedSortType = MutableStateFlow(SortType.MOST_POPULAR)
     val selectedSortType get() = _selectedSortType.asStateFlow()
 
-    private val _showDropdown = MutableStateFlow(false)
-    val showDropdown get() = _showDropdown.asStateFlow()
+    private val _showDropdown = Channel<Boolean>()
+    val showDropdown get() = _showDropdown.receiveAsFlow()
 
     init {
         fetchMovies()
@@ -71,6 +73,8 @@ class MovieViewModel @Inject constructor(
     }
 
     fun setShowDropdown(show: Boolean) {
-        _showDropdown.value = show
+        viewModelScope.launch {
+            _showDropdown.send(show)
+        }
     }
 }

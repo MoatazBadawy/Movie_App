@@ -1,4 +1,4 @@
-package com.movieapp.core.ui.screens
+package com.movieapp.core.ui.screens.movie
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
@@ -19,19 +19,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.movieapp.core.ui.component.Loading
 import com.movieapp.core.ui.component.MovieItem
 import com.movieapp.core.ui.component.MovieToolbar
+import com.movieapp.core.ui.screens.moviedetails.navigateToMovieDetails
 import com.movieapp.core.viewmodels.MovieViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MovieScreen(
+    navController: NavController,
     viewModel: MovieViewModel = hiltViewModel(),
 ) {
     val movieUiState by viewModel.movieUiState.collectAsState()
     val selectedSortType by viewModel.selectedSortType.collectAsState()
-    val showDropdown by viewModel.showDropdown.collectAsState()
+    val showDropdown by viewModel.showDropdown.collectAsState(false)
 
     Scaffold(
         topBar = {
@@ -54,7 +57,12 @@ fun MovieScreen(
                             modifier = Modifier.padding(start = 8.dp, end = 8.dp),
                         ) {
                             items(movieUiState.movies) { movie ->
-                                MovieItem(movie = movie)
+                                MovieItem(
+                                    movie = movie,
+                                    onClick = {
+                                        navController.navigateToMovieDetails(movie.id)
+                                    },
+                                )
                             }
                         }
                     }
