@@ -7,6 +7,7 @@ buildscript {
         gson_version = '2.9.0'
         okhttp_version = '5.0.0-alpha.3'
         coil_version = "2.2.2"
+        room_version = "2.5.1"
     }
     repositories {
         google()

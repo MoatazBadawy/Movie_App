@@ -1,6 +1,6 @@
 package com.moataz.remote.datasource
 
-import com.moataz.data.datasource.MovieDataSource
+import com.moataz.data.datasource.MovieRemoteDataSource
 import com.moataz.data.model.MovieDetailsModel
 import com.moataz.data.model.MovieModel
 import com.moataz.remote.MovieService
@@ -10,9 +10,9 @@ import com.moataz.remote.datasource.utils.wrap
 import com.moataz.remote.datasource.utils.wrapList
 import javax.inject.Inject
 
-class MovieDataSourceImpl @Inject constructor(
+class MovieRemoteDataSourceImpl @Inject constructor(
     private val movieService: MovieService,
-) : MovieDataSource {
+) : MovieRemoteDataSource {
 
     override suspend fun getMostPopularMovies(): List<MovieModel> {
         return wrapList { movieService.getMostPopularMovies() }.toMovieListModel()
