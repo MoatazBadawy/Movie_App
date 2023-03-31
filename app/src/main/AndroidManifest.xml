@@ -17,7 +17,7 @@
         android:theme="@style/Theme.MovieAppTask"
         tools:targetApi="31">
         <activity
-            android:name="com.movieapp.core.ui.main.CoreMainActivity"
+            android:name="com.moataz.presentation.ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
