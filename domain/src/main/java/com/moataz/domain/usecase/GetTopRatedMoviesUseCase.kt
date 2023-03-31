@@ -8,7 +8,6 @@ class GetTopRatedMoviesUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
 ) {
     suspend operator fun invoke(): List<Movie> {
-        movieRepository.insertTopRatedMovies()
         return movieRepository.getTopRatedMovies()
     }
 }
