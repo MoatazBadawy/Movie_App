@@ -1,7 +1,7 @@
 package com.moataz.movieapp.di
 
-import com.movieapp.core.remote.datasource.MovieDataSourceImpl
-import com.movieapp.core.repositories.MovieDataSource
+import com.moataz.data.datasource.MovieDataSource
+import com.moataz.remote.datasource.MovieDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

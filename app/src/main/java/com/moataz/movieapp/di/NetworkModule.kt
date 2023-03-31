@@ -1,8 +1,8 @@
 package com.moataz.movieapp.di
 
 import com.moataz.movieapp.BuildConfig
-import com.movieapp.core.remote.AuthInterceptor
-import com.movieapp.core.remote.MovieService
+import com.moataz.remote.AuthInterceptor
+import com.moataz.remote.MovieService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
