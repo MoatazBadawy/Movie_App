@@ -26,7 +26,10 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertMovieDetails(movieId: Int) {
-        movieLocalDataSource.insertMovieDetailsById(movieRemoteDataSource.getMovieDetails(movieId), movieId)
+        movieLocalDataSource.insertMovieDetailsById(
+            movieRemoteDataSource.getMovieDetails(movieId),
+            movieId,
+        )
     }
 
     override suspend fun getMostPopularMovies(): List<Movie> {
