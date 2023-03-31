@@ -16,17 +16,16 @@ Enjoy an exclusive experience by watching the latest movies
 - Discover Movie Details.
 
 ## Project Architecture:
-This project follows the Clean Architecture structure and MVVM. It has UseCases that encapsulate a single, specific task that is part of the application's business logic. Repository layer, providing a single source of truth for data. The UI layer uses all the components and classes related to the Android framework to get the data from the ViewModel layer and display it on the UI.
+This project follows the Clean Architecture structure and MVI. It has UseCases that encapsulate a single, specific task that is part of the application's business logic. Repository layer, providing a single source of truth for data. The UI layer uses all the components and classes related to the Android framework to get the data from the ViewModel layer and display it on the UI.
 
 
 <img src="https://user-images.githubusercontent.com/63272288/224539374-26ea3e6b-ed81-4700-bbbe-640489aeca38.jpg" width="600" />
 
 ## App Modules:
 * **Remote** - This module handles data interaction with the Network Http requests(Retrofit).
-* **Repositories** - This Kotlin module implements the repository interface defined in the domain layer, providing a single source of truth for data. It can only access the domain module.
-* **UseCases** - This Kotlin module contains UseCases that encapsulate a single, specific task that is part of the application's business logic. It cannot access any other module.
-* **ViewModel** - This Android module uses MVVM with ViewModels exposing StateFlow that the UI consumes. The ViewModel does not know anything about its consumers. It can only access the UseCases module and it is handel the UI State.
-* **ui** - This module uses all the components and classes related to the Android framework to display data from the ViewModel layer on the UI.
+* **Data** - This Kotlin module implements the repository interface defined in the domain layer, providing a single source of truth for data. It can only access the domain module.
+* **Domain** - This Kotlin module contains UseCases that encapsulate a single, specific task that is part of the application's business logic. It cannot access any other module.
+* **Presentation** - This Android module uses MVI with ViewModels exposing StateFlow that the UI consumes. The ViewModel does not know anything about its consumers. It can only access the UseCases module and it is handel the UI State. Also it has the UI layer that uses all the components and classes related to the Android framework to display data from the ViewModel layer on the UI.
 * **App** - This module handles the DI(Dependency injection).
 
 
