@@ -35,17 +35,21 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getMostPopularMovies(): List<Movie> {
-        if (networkHelper.isInternetAvailable()) {
+        return if (networkHelper.isInternetAvailable()) {
             insertMostPopularMovies()
+            movieRemoteDataSource.getMostPopularMovies().toMovieList()
+        } else {
+            movieLocalDataSource.getMoviesByType("popular").toMovieList()
         }
-        return movieLocalDataSource.getMoviesByType("popular").toMovieList()
     }
 
     override suspend fun getTopRatedMovies(): List<Movie> {
-        if (networkHelper.isInternetAvailable()) {
+        return if (networkHelper.isInternetAvailable()) {
             insertTopRatedMovies()
+            movieRemoteDataSource.getTopRatedMovies().toMovieList()
+        } else {
+            movieLocalDataSource.getMoviesByType("top_rated").toMovieList()
         }
-        return movieLocalDataSource.getMoviesByType("top_rated").toMovieList()
     }
 
     override suspend fun getMovieDetails(movieId: Int): MovieDetails {
