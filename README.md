@@ -14,6 +14,7 @@ Enjoy an exclusive experience by watching the latest movies
 - Most Popular Movies.
 - Top Rated Movies.
 - Discover Movie Details.
+- Offline caching.
 
 ## Project Architecture:
 This project follows the Clean Architecture structure and MVI. It has UseCases that encapsulate a single, specific task that is part of the application's business logic. Repository layer, providing a single source of truth for data. The UI layer uses all the components and classes related to the Android framework to get the data from the ViewModel layer and display it on the UI.
@@ -23,6 +24,7 @@ This project follows the Clean Architecture structure and MVI. It has UseCases t
 
 ## App Modules:
 * **Remote** - This module handles data interaction with the Network Http requests(Retrofit).
+* **Local** - This module handles data interaction with the database(RoomDB).
 * **Data** - This Kotlin module implements the repository interface defined in the domain layer, providing a single source of truth for data. It can only access the domain module.
 * **Domain** - This Kotlin module contains UseCases that encapsulate a single, specific task that is part of the application's business logic. It cannot access any other module.
 * **Presentation** - This Android module uses MVI with ViewModels exposing StateFlow that the UI consumes. The ViewModel does not know anything about its consumers. It can only access the UseCases module and it is handel the UI State. Also it has the UI layer that uses all the components and classes related to the Android framework to display data from the ViewModel layer on the UI.
@@ -39,8 +41,9 @@ This illustration from the clean architecture book shows the dependencies betwee
 
 
 ## Tech stack - Library:
-- [Kotlin](https://kotlinlang.org/)
+- [Kotlin](https://kotlinlang.org/) - Kotlin is a modern statically typed programming language used by over 60% of professional Android developers that helps boost productivity, developer satisfaction, and code safety.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android's recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android.
+- [Room](https://kotlinlang.org/) - Room is a persistence library that provides an abstraction layer over the SQLite database to allow a more robust database.
 - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android.
 - [OkHttp](https://square.github.io/okhttp/) - OkHttp is an efficient HTTP & HTTP/2 client for Android applications.
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
@@ -60,6 +63,7 @@ Add your API key for tmdb in local.properties file.
 - [X] Movie Details Screen
 - [X] Ktlint or Detekt
 - [X] Use Jetpack Compose
+- [X] Offline caching
 
 ## Find this repository useful?
 Support it by joining __[stargazers](https://github.com/MoatazBadawy/Movie_App/stargazers)__ for this repository. <br>
