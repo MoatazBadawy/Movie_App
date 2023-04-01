@@ -74,7 +74,12 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
     implementation("com.squareup.okhttp3:okhttp-urlconnection:4.4.1")
+    // room database
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
     implementation project(":remote")
+    implementation project(":local")
     implementation project(":data")
     implementation project(":domain")
     implementation project(":presentation")
