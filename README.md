@@ -2,9 +2,9 @@
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-1.4.xxx-blue"/></a>
-  <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
+  <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-1.8.xxx-blue"/></a>
+  <img alt="MVVM" src="https://img.shields.io/badge/MVI-Architecture-orange"/>
 </p>
 
 ![](https://user-images.githubusercontent.com/63272288/228627136-7f27f236-3813-402c-b840-3763f2215085.png)
