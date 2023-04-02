@@ -1,8 +1,8 @@
 package com.moataz.movieapp.di
 
+import com.data.remote.AuthInterceptor
+import com.data.remote.MovieService
 import com.moataz.movieapp.BuildConfig
-import com.moataz.remote.AuthInterceptor
-import com.moataz.remote.MovieService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,7 +27,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(client: OkHttpClient, gsonConverterFactory: GsonConverterFactory): Retrofit {
+    fun provideRetrofit(
+        client: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory,
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(client)

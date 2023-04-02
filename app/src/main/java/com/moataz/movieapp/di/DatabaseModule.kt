@@ -2,8 +2,8 @@ package com.moataz.movieapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.moataz.local.dao.MovieDao
-import com.moataz.local.database.MovieDatabase
+import com.data.local.dao.MovieDao
+import com.data.local.database.MovieDatabase
 import com.moataz.movieapp.di.utils.DatabaseConstant.DATABASE_NAME
 import dagger.Module
 import dagger.Provides

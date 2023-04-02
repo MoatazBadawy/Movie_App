@@ -1,7 +1,7 @@
 package com.moataz.movieapp.di
 
-import com.moataz.data.repository.MovieRepositoryImpl
-import com.moataz.domain.repository.MovieRepository
+import com.data.repositories.repository.MovieRepositoryImpl
+import com.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
