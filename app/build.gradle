@@ -78,9 +78,9 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    implementation project(":remote")
-    implementation project(":local")
-    implementation project(":data")
-    implementation project(":domain")
-    implementation project(":presentation")
+    implementation project(":data:local")
+    implementation project(":data:remote")
+    implementation project(":data:repositories")
+    implementation project(":domain:repository")
+    implementation project(":presentation:ui")
 }
