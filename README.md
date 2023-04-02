@@ -31,7 +31,8 @@ This project follows the Clean Architecture structure and MVI. It has UseCases t
 * **App** - This module handles the DI(Dependency injection).
 
 
-<img src="https://user-images.githubusercontent.com/63272288/224540081-69478b9d-7b3c-4225-beff-94e9f9ce64bc.jpg" width="600" />
+<img src="https://user-images.githubusercontent.com/63272288/229328822-ae339b99-bde0-4156-a07d-982f3fbf9471.jpeg" width="700" />
+
 
 ## Data and Dependenciy Flow:
 This illustration from the clean architecture book shows the dependencies between the layers in a project and the way data flows between them. (our app use the same thing).
