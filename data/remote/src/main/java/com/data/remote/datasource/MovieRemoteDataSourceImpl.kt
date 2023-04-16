@@ -4,7 +4,6 @@ import com.data.remote.MovieService
 import com.data.remote.datasource.mapper.toMovieDetailsModel
 import com.data.remote.datasource.mapper.toMovieListModel
 import com.data.remote.datasource.utils.wrap
-import com.data.remote.datasource.utils.wrapList
 import com.data.repositories.datasource.MovieRemoteDataSource
 import com.data.repositories.model.MovieDetailsModel
 import com.data.repositories.model.MovieModel
@@ -15,11 +14,11 @@ class MovieRemoteDataSourceImpl @Inject constructor(
 ) : MovieRemoteDataSource {
 
     override suspend fun getMostPopularMovies(): List<MovieModel> {
-        return wrapList { movieService.getMostPopularMovies() }.toMovieListModel()
+        return wrap { movieService.getMostPopularMovies() }.items?.toMovieListModel() ?: emptyList()
     }
 
     override suspend fun getTopRatedMovies(): List<MovieModel> {
-        return wrapList { movieService.getTopRatedMovies() }.toMovieListModel()
+        return wrap { movieService.getTopRatedMovies() }.items?.toMovieListModel() ?: emptyList()
     }
 
     override suspend fun getMovieDetails(movieId: Int): MovieDetailsModel {
